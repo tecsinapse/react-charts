@@ -1,10 +1,16 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "@tecsinapse/react-charts",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "build:ts": "tsc --project tsconfig.build.json",
+    "build:es": "cross-env BABEL_ENV=build babel src --root-mode upward --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --no-comments",
     "eject": "expo eject"
   },
   "dependencies": {

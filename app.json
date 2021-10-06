@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "node_modules/expo/AppEntry.js",
     "name": "d3js-native",
     "slug": "d3js-native",
     "version": "1.0.0",
