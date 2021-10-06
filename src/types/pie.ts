@@ -3,5 +3,5 @@ export type PieChartData = {
   label: string;
   featured?: boolean;
   color: string;
-  onPress?: (value: number) => void;
+  onPress?: (value: number, label?: string) => void;
 };

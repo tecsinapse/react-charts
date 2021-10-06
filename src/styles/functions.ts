@@ -13,5 +13,5 @@ export const getFontFamilyAndWeight = (
       }
     : {
         fontFamily: fontFamily ? fontFamily[weight] : nativeFontStack[weight],
-        fontWeight: "normal",
+        fontWeight: fontWeight[weight],
       };

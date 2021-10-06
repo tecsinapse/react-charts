@@ -36,7 +36,7 @@ export default function App() {
     value: item.value,
     label: item.label,
     color: colors[index],
-    onPress: (value) => console.log(value),
+    onPress: (value, label) => console.log(value, label),
     //featured: index === 0,
   }));
 
@@ -47,7 +47,6 @@ export default function App() {
         justifyContent: "center",
         width: 300,
         height: 300,
-        margin: "auto",
       }}
     >
       <PieChart

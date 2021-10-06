@@ -2,11 +2,19 @@ import { Platform } from "react-native";
 import { FontFamily, FontWeight, SvgTextType } from "../../types";
 import { fontColor, getFontFamilyAndWeight } from "../../styles";
 
-export const getCallback = (value: number, fn?: (value: number) => void) => {
+export const getCallback = (
+  value: number,
+  label?: string,
+  fn?: (value: number, label?: string) => void
+) => {
   if (!fn) return {};
   return Platform.OS === "web"
-    ? { onClick: () => fn?.(value) }
-    : { onPress: () => fn?.(value) };
+    ? {
+        onClick: () => fn?.(value, label),
+      }
+    : {
+        onPress: () => fn?.(value, label),
+      };
 };
 
 export const getFeatured = (featured: boolean) => ({

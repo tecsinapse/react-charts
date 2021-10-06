@@ -44,7 +44,7 @@ const PieChart: React.FC<PieChartProps> = ({
     value: item.value,
     svg: {
       fill: item.color,
-      ...getCallback(item.value, item.onPress),
+      ...getCallback(item.value, item.label, item.onPress),
     },
     ...getFeatured(item.featured ?? false),
     key: `pie-${index}`,
@@ -75,7 +75,7 @@ const PieChart: React.FC<PieChartProps> = ({
   return (
     <Container>
       <PChart
-        style={{ width: dimension, height: dimension }}
+        style={{ width: dimension, height: dimension, flex: 1 }}
         data={chart}
         padAngle={0}
         innerRadius={`${inner}%`}

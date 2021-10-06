@@ -16,6 +16,18 @@ export const Container = styled(View)<{ columns: number }>(
     `
 );
 
+const expandStyles = (expand?: boolean) =>
+  expand &&
+  css`
+    flex: 1;
+  `;
+
+const flexEndStyles = (flexEnd?: boolean) =>
+  flexEnd &&
+  css`
+    justify-content: flex-end;
+  `;
+
 export const Text = styled(RNText)<{
   font: {
     fontFamily: string;
@@ -29,7 +41,7 @@ export const Text = styled(RNText)<{
     font-size: 14px;
     font-family: ${fontFamily};
     font-weight: ${fontWeight};
-    ${expand ? "flex: 1" : ""}
-    ${flexEnd ? "justify-content: flex-end" : ""}
+    ${expandStyles(expand)}
+    ${flexEndStyles(flexEnd)}
   `;
 });

@@ -6,7 +6,7 @@ export const Container = styled(View)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  flex: 1;
 `;
 
 export const LabelsContainer = styled(View)`
