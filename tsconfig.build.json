@@ -10,11 +10,17 @@
     "esModuleInterop": true,
     "removeComments": true,
     "rootDir": "./src",
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "declarationDir": "./dist",
     "declaration": true,
     "skipLibCheck": true,
-    "outDir": "./dist"
+    "emitDeclarationOnly": true
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "babelCore": "@babel/core"
   },
   "include": ["src"],
-  "exclude": ["node_modules", ".expo", ".expo-shared", "dist"]
+  "exclude": ["node_modules", ".expo", ".expo-shared", "dist"],
+  "typeRoots": ["./node_modules/@types"]
 }
