@@ -1,21 +1,20 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 import {
   Lato_700Bold,
   Lato_400Regular,
   Lato_900Black,
-} from "@expo-google-fonts/lato";
-import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
-import { PieChart } from "./src/components";
-import { PieChartData } from "./src/types";
+} from '@expo-google-fonts/lato';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
+import { PieChartData, PieChart } from './src';
 
 export default function App() {
   const data = [
-    { value: 10, label: "Fora do prazo" },
-    { value: 13, label: "Dentro do prazo" },
+    { value: 10, label: 'Fora do prazo' },
+    { value: 13, label: 'Dentro do prazo' },
   ];
-  const colors = ["#FCCB83", "#F89907"];
+  const colors = ['#FCCB83', '#F89907'];
   const [fontsLoaded] = useFonts({
     Lato_700Bold,
     Lato_400Regular,
@@ -27,32 +26,31 @@ export default function App() {
   }
 
   const fonts = {
-    regular: "Lato_400Regular",
-    bold: "Lato_700Bold",
-    black: "Lato_900Black",
+    regular: 'Lato_400Regular',
+    bold: 'Lato_700Bold',
+    black: 'Lato_900Black',
   };
 
   const pieData: PieChartData[] = data.map((item, index) => ({
     value: item.value,
     label: item.label,
     color: colors[index],
-    onPress: (value) => console.log(value),
+    onPress: (value, label) => console.log(value, label),
     //featured: index === 0,
   }));
 
   return (
     <View
       style={{
-        alignSelf: "center",
-        justifyContent: "center",
+        alignSelf: 'center',
+        justifyContent: 'center',
         width: 300,
         height: 300,
-        margin: "auto",
       }}
     >
       <PieChart
         data={pieData}
-        sub={"Leads"}
+        sub={'People'}
         chartConfig={{ fontFamily: fonts }}
       />
     </View>

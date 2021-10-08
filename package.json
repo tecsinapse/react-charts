@@ -1,11 +1,25 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "@tecsinapse/react-charts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "src"],
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "prebuild": "rimraf -rf dist/",
+    "build": "yarn build:es",
+    "postbuild": "yarn build:ts",
+    "build:ts": "tsc --project tsconfig.build.json",
+    "build:es": "cross-env BABEL_ENV=build babel src --root-mode upward --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --no-comments",
+    "eject": "expo eject",
+    "prepublish": "yarn build",
+    "prettify": "prettier --write ./src/**/*.{ts,tsx,json} && prettier --write *.{ts,tsx,json}",
+    "lint:ts": "eslint 'src/**/*.ts{,x}'",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@emotion/native": "^11.0.0",
@@ -14,25 +28,69 @@
     "react-native-svg-charts": "^5.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.9.0",
     "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
     "@expo-google-fonts/lato": "^0.2.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.2",
     "expo": "~42.0.1",
     "expo-app-loading": "^1.1.2",
     "expo-font": "~9.2.1",
     "expo-status-bar": "~1.0.4",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-svg": "^12.1.1",
     "react-native-web": "~0.13.12",
+    "rimraf": "^3.0.2",
     "typescript": "~4.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.64.0",
     "react-native-svg": ">=12.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    ".{ts,tsx}": [
+      "yarn lint",
+      "yarn prettify",
+      "git add ."
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "directory": "src",
+    "url": "git+ssh://git@github.com/tecsinapse/react-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/react-charts/issues"
   }
 }

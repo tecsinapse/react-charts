@@ -1,6 +1,6 @@
-import styled, { css } from "@emotion/native";
-import { Text as RNText, View } from "react-native";
-import { spacing } from "../../styles";
+import styled, { css } from '@emotion/native';
+import { Text as RNText, View } from 'react-native';
+import { spacing } from '../../styles';
 
 const flexBasis = (columns: number) =>
   css({ flexBasis: `${100 / columns - 2}%` });
@@ -16,6 +16,18 @@ export const Container = styled(View)<{ columns: number }>(
     `
 );
 
+const expandStyles = (expand?: boolean) =>
+  expand &&
+  css`
+    flex: 1;
+  `;
+
+const flexEndStyles = (flexEnd?: boolean) =>
+  flexEnd &&
+  css`
+    justify-content: flex-end;
+  `;
+
 export const Text = styled(RNText)<{
   font: {
     fontFamily: string;
@@ -29,7 +41,7 @@ export const Text = styled(RNText)<{
     font-size: 14px;
     font-family: ${fontFamily};
     font-weight: ${fontWeight};
-    ${expand ? "flex: 1" : ""}
-    ${flexEnd ? "justify-content: flex-end" : ""}
+    ${expandStyles(expand)}
+    ${flexEndStyles(flexEnd)}
   `;
 });

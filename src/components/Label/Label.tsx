@@ -1,8 +1,8 @@
-import React from "react";
-import { Dot } from "../Dot";
-import { FontFamily, PieChartData } from "../../types";
-import { Container, Text } from "./styled";
-import { getFontFamilyAndWeight } from "../../styles";
+import React from 'react';
+import { Dot } from '../Dot';
+import { FontFamily, PieChartData } from '../../types';
+import { Container, Text } from './styled';
+import { getFontFamilyAndWeight } from '../../styles';
 
 interface LabelProps {
   columns: number;
@@ -13,8 +13,8 @@ interface LabelProps {
 }
 
 const Label: React.FC<LabelProps> = ({ columns, data, chartConfig }) => {
-  const valueFont = getFontFamilyAndWeight(chartConfig?.fontFamily, "bold");
-  const labelFont = getFontFamilyAndWeight(chartConfig?.fontFamily, "regular");
+  const valueFont = getFontFamilyAndWeight(chartConfig?.fontFamily, 'bold');
+  const labelFont = getFontFamilyAndWeight(chartConfig?.fontFamily, 'regular');
   return (
     <Container columns={columns}>
       <Dot color={data.color} />

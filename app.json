@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "d3js-native",
-    "slug": "d3js-native",
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "name": "react-charts",
+    "slug": "react-charts",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

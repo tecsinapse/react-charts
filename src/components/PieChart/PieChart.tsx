@@ -1,10 +1,10 @@
-import { Text } from "react-native-svg";
-import React from "react";
-import { PieChart as PChart } from "react-native-svg-charts";
-import { Label } from "../Label";
-import { FontFamily, PieChartData, SvgTextType } from "../../types";
-import { getCallback, getFeatured, getTextStyles } from "./functions";
-import { Container, LabelsContainer } from "./styled";
+import { Text } from 'react-native-svg';
+import React from 'react';
+import { PieChart as PChart } from 'react-native-svg-charts';
+import { Label } from '../Label';
+import { FontFamily, PieChartData, SvgTextType } from '../../types';
+import { getCallback, getFeatured, getTextStyles } from './functions';
+import { Container, LabelsContainer } from './styled';
 
 export interface PieChartProps {
   data: PieChartData[];
@@ -44,7 +44,7 @@ const PieChart: React.FC<PieChartProps> = ({
     value: item.value,
     svg: {
       fill: item.color,
-      ...getCallback(item.value, item.onPress),
+      ...getCallback(item.value, item.label, item.onPress),
     },
     ...getFeatured(item.featured ?? false),
     key: `pie-${index}`,
@@ -60,7 +60,7 @@ const PieChart: React.FC<PieChartProps> = ({
     fontFamily,
     fill,
     y = sub ? -5 : undefined,
-  } = getTextStyles(labelProps, "bold", chartConfig);
+  } = getTextStyles(labelProps, 'bold', chartConfig);
 
   const {
     textAnchor: textAnchorSub,
@@ -70,12 +70,12 @@ const PieChart: React.FC<PieChartProps> = ({
     fontFamily: fontFamilySub,
     fill: fillSub,
     y: ySub = 16,
-  } = getTextStyles(subProps, "bold", chartConfig);
+  } = getTextStyles(subProps, 'bold', chartConfig);
 
   return (
     <Container>
       <PChart
-        style={{ width: dimension, height: dimension }}
+        style={{ width: dimension, height: dimension, flex: 1 }}
         data={chart}
         padAngle={0}
         innerRadius={`${inner}%`}
@@ -106,7 +106,7 @@ const PieChart: React.FC<PieChartProps> = ({
         )}
       </PChart>
       <LabelsContainer>
-        {data.map((item) => (
+        {data.map(item => (
           <Label
             data={item}
             columns={columns}
