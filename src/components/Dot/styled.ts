@@ -1,6 +1,6 @@
-import styled from "@emotion/native";
-import { View } from "react-native";
-import { borderRadius, iconSize, spacing } from "../../styles";
+import styled from '@emotion/native';
+import { View } from 'react-native';
+import { borderRadius, iconSize, spacing } from '../../styles';
 
 export const Circle = styled(View)<{ color: string }>`
   background-color: ${({ color }) => color};

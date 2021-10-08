@@ -1,6 +1,6 @@
-import styled, { css } from "@emotion/native";
-import { Text as RNText, View } from "react-native";
-import { spacing } from "../../styles";
+import styled, { css } from '@emotion/native';
+import { Text as RNText, View } from 'react-native';
+import { spacing } from '../../styles';
 
 const flexBasis = (columns: number) =>
   css({ flexBasis: `${100 / columns - 2}%` });

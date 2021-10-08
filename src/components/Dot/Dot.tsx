@@ -1,5 +1,5 @@
-import React from "react";
-import { CircleDot, Circle } from "./styled";
+import React from 'react';
+import { CircleDot, Circle } from './styled';
 
 const Dot = ({ color }: { color: string }): JSX.Element => {
   return (

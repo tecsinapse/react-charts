@@ -1,5 +1,5 @@
-import styled from "@emotion/native";
-import { View } from "react-native";
+import styled from '@emotion/native';
+import { View } from 'react-native';
 
 export const Container = styled(View)`
   display: flex;
