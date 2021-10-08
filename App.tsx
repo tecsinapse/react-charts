@@ -7,8 +7,7 @@ import {
 } from '@expo-google-fonts/lato';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import { PieChart } from './src/components';
-import { PieChartData } from './src/types';
+import { PieChartData, PieChart } from './src';
 
 export default function App() {
   const data = [
@@ -51,7 +50,7 @@ export default function App() {
     >
       <PieChart
         data={pieData}
-        sub={'Leads'}
+        sub={'People'}
         chartConfig={{ fontFamily: fonts }}
       />
     </View>

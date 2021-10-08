@@ -83,5 +83,13 @@
       "yarn prettify",
       "git add ."
     ]
+  },
+  "repository": {
+    "type": "git",
+    "directory": "src",
+    "url": "git+ssh://git@github.com/tecsinapse/react-charts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/react-charts/issues"
   }
 }
